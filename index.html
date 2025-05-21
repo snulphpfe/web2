@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to ShawnNulph.com</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+            background: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        h1 {
+            font-size: 24pt;
+            font-weight: 700;
+            color: #222;
+            margin: 0 0 32px 0;
+        }
+        .gallery {
+            width: 400px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            background: #f5f5f5;
+        }
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.8s;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to ShawnNulph.com</h1>
+    <div class="gallery">
+        <img id="gallery-img" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Gallery Image">
+    </div>
+    <script>
+        const images = [
+            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=800&q=80"
+        ];
+        let current = 0;
+        const img = document.getElementById('gallery-img');
+        setInterval(() => {
+            current = (current + 1) % images.length;
+            img.style.opacity = 0;
+            setTimeout(() => {
+                img.src = images[current];
+                img.style.opacity = 1;
+            }, 800);
+        }, 20000);
+    </script>
+</body>
+</html>
